@@ -3,7 +3,7 @@ import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-const SearchInputForm = () => {
+const SearchInputForm = ({ setListingsInfo }) => {
   const onSubmitHandler = event => {
     event.preventDefault();
     axios
@@ -15,7 +15,7 @@ const SearchInputForm = () => {
           location: event.target.location.value
         }
       })
-      .then(res => console.log(res.data));
+      .then(res => setListingsInfo(res.data));
   };
 
   return (
