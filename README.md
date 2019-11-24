@@ -53,7 +53,7 @@ November 23rd, 2019
    **Note:** Let's assume that we are querying for a Ford Mustang, 2017 model in my local area. It provides me with over 300 results.
    <br>
    <br>
-   (1) As stated in the Marketcheck API, we can query for rows 250-300 if need be. However, the deeper you go in the result set,the slower the API will get. Although it's allowed right now to go deep, in the future, the API will block deep pagination. If you need to go way deep in the result sets via the API then API is not what you need, you need a data feed from the Marketcheck API side.
+   (1) As stated in the Marketcheck API, we can query for rows 250-300 if need be. However, the deeper you go in the result set, the slower the API will get. Although it's allowed right now to go deep, in the future, the API will block deep pagination. If you need to go way deep in the result sets via the API then API is not what you need, you need a data feed from the Marketcheck API side.
    <br>
    (2) Since I have an Express backend with no database, I cannot store and query the information I recieved from my API easily. Nor do I have a data feed from the Marketcheck API.
    <br>
