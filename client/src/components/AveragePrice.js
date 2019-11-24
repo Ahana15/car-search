@@ -8,7 +8,7 @@ const AveragePrice = ({ average }) => {
       <div>
         <b>Average Price:</b>{" "}
       </div>
-      <div className="price">{average ? `$ ${average}` : "-"}</div>
+      <div className="price">{average ? `$ ${average.toFixed(2)}` : "-"}</div>
     </div>
   );
 };

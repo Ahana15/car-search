@@ -34,11 +34,11 @@ November 23rd, 2019
 
 # Assumptions and Issues
 
-1. The **average price** represents the average prices of the total cars for a selected make, model, year and **does not include** similar vehicles.
+1. The **average price** represents the average prices of the total cars for a selected make, model, year and **does not include** similar vehicles. If there is no price listed for any of the car listings then an average price will not be displayed. I have chosen not to display the price as it may give a skewed representation of the data since it would be not a true average.
 2. The radius provided to the Marketcheck API is accepting an integer (in miles). The tech challenge said to use a 10km radius, which is approximately 6.21371 miles. I rounded up to 7 miles in my queries.
 3. The **dist** key provided by a response from the Marketcheck API is assumed to be a **straight line distance** between the dealership and the user's selected location in miles.
-4. When populating the **Make** textfield with autocomplete options, the Marketcheck API gives only the first 50 results in alphabetical order for various makes of a car. This make list ranges from "AM General" to "Plymouth".
-5. The **Model** autocomplete options is populated based on the selected make of the car. However, the Marketcheck API gives only the first 50 results.
+4. When populating the **Make** textfield with autocomplete options, the Marketcheck API gives only the first 50 results (limitation of search auto-complete) in alphabetical order for various makes of a car. This make list ranges from "AM General" to "Plymouth".
+5. The **Model** autocomplete options is populated based on the selected make of the car. However, the Marketcheck API gives only the first 50 results as well.
    <br>
    <br>
    **For Example:** If the user wanted to look for a **Ford Mustang**, and the **Make** textfield has the value **Ford**. The **Model** autocomplete options only shows results up to the letter **E**. This **Mustang** option is unavailable in these options since **Mustang** is not in the first 50 models.
@@ -68,4 +68,6 @@ November 23rd, 2019
 4. Allow the user to input **at minimum** a car model and locaton (required field). All the types of models and years should be included in the result. This allows a user some flexibility in their search.
 5. Add "Advanced Options" for the user when looking at similar cars: price range, date range, and different aspects of a car that they are looking for (number of doors / seats, mileage, etc.).
 6. Add sorting buttons (i.e., sort by price, dist, etc. in ascending or descending order).
-7. In general, improve and have more consistent styling with the application.
+7. Add better error handling for the user's inputs (what they can and cannot type) and accounting for missing keys/values in the data from Marketcheck API.
+8. Add smoother transitions every time a new search result is triggered (i.e. adding spinners every time we make a call to the backend) so that the user is aware some process is happening in the background.
+9. In general, improve and have more consistent styling with the application.
