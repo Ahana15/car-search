@@ -32,6 +32,10 @@ These can be obtained here (follow the instructions on the website links):
 
 November 23rd, 2019
 
+# Application in Action
+
+![Application in action](https://github.com/Ahana15/car-search/blob/master/car-search.gif?raw=true)
+
 # Assumptions and Issues
 
 1. The **average price** represents the average prices of the total cars for a selected make, model, year and **does not include** similar vehicles. If there is no price listed for any of the car listings then an average price will not be displayed. I have chosen not to display the price as it may give a skewed representation of the data since it would be not a true average.
