@@ -34,7 +34,7 @@ November 23rd, 2019
 
 # Application in Action
 
-![Application in action](https://github.com/Ahana15/car-search/blob/master/car-search.gif?raw=true)
+![Application in action](car-search.gif)
 
 # Assumptions and Issues
 
