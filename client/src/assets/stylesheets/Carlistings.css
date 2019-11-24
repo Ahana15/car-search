@@ -1,0 +1,18 @@
+.no-listing {
+  display: flex;
+  justify-content: center;
+  padding: 8vh;
+  font-size: 4vh;
+  font-family: "Be Vietnam", sans-serif;
+}
+
+.listings-header {
+  font-size: 4vh;
+  padding: 2vh;
+  font-family: "Be Vietnam", sans-serif;
+}
+
+.listings-list-header {
+  display: flex;
+  justify-content: center;
+}

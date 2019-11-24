@@ -4,7 +4,15 @@ const cors = require("cors");
 const routes = require("./routes/route");
 const app = express();
 
-require("dotenv").config();
+const dotenv = require("dotenv");
+const result = dotenv.config();
+
+if (result.error) {
+  console.log("insiide result.error with value: ---------", result.error);
+  // throw result.error;
+}
+
+console.log(result.parsed);
 
 const corsOptions = {
   origin: "http://localhost:3000"

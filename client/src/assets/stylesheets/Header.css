@@ -1,0 +1,18 @@
+.header-contents {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2vh;
+  background-color: #ea80fc;
+}
+
+.header-title {
+  font-size: 4vh;
+  font-family: "Be Vietnam", sans-serif;
+  margin-right: 2vh;
+}
+
+.header-icon {
+  height: 7vh;
+  width: 8vh;
+}

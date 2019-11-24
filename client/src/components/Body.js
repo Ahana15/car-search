@@ -8,6 +8,7 @@ const Body = () => {
     numberOfListings: null,
     listings: []
   });
+
   return (
     <div>
       <SearchInputForm setListingsInfo={setListingsInfo} />

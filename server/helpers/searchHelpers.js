@@ -23,7 +23,7 @@ const filterListings = data => {
       "media",
       "dealer",
       "build",
-      "distance"
+      "dist"
     ])
   );
 };

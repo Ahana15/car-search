@@ -1,20 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Link from "@material-ui/core/Link";
+
+import "../assets/stylesheets/CarListing.css";
 
 const CarListing = ({
   vin,
@@ -30,60 +25,113 @@ const CarListing = ({
   build,
   distance
 }) => {
+  const [showCarDetails, setShowCarDetails] = useState(false);
   return (
     <div>
       <Card className="car-listing">
-        <CardHeader title={heading} subheader={`$ ${price}`} />
-        <CardMedia className="car-image" image={photoUrl} />
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
+        <CardHeader
+          title={heading}
+          subheader={`${
+            price ? "Price: $ " + price : "No price available"
+          }, Distance: ${distance ? `${distance} miles away` : "-"}`}
+        />
+        <div className="card-info">
+          <img
+            className="car-image"
+            src={photoUrl ? photoUrl : "noimageavailable.png"}
+          />
+          <CardContent>
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              className="dealer-info"
+            >
+              <b>Address: </b>
+              {`${dealer.street}, ${dealer.city}, ${dealer.state}, ${dealer.country}, ${dealer.zip}`}
+            </Typography>
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              className="dealer-info"
+            >
+              <b>Website Link: </b>
+              <Link href={carURL} variant="body2" className="dealer-info">
+                {dealer.name}
+              </Link>
+            </Typography>
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              className="dealer-info"
+            >
+              <b>Inventory Type: </b>
+              {`${inventoryType}`}
+            </Typography>
+          </CardContent>
+        </div>
+        <CardActions disableSpacing className="expand-icon">
           <IconButton
-            className="expand-icon"
-            // onClick={handleExpandClick}
-            // aria-expanded={expanded}
+            onClick={() => setShowCarDetails(!showCarDetails)}
             aria-label="show more"
           >
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>
-        {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
+        {showCarDetails && (
           <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <Typography paragraph>
-              Heat 1/2 cup of the broth in a pot until simmering, add saffron
-              and set aside for 10 minutes.
-            </Typography>
-            <Typography paragraph>
-              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-              over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-              stirring occasionally until lightly browned, 6 to 8 minutes.
-              Transfer shrimp to a large plate and set aside, leaving chicken
-              and chorizo in the pan. Add pimentón, bay leaves, garlic,
-              tomatoes, onion, salt and pepper, and cook, stirring often until
-              thickened and fragrant, about 10 minutes. Add saffron broth and
-              remaining 4 1/2 cups chicken broth; bring to a boil.
-            </Typography>
-            <Typography paragraph>
-              Add rice and stir very gently to distribute. Top with artichokes
-              and peppers, and cook without stirring, until most of the liquid
-              is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add
-              reserved shrimp and mussels, tucking them down into the rice, and
-              cook again without stirring, until mussels have opened and rice is
-              just tender, 5 to 7 minutes more. (Discard any mussels that don’t
-              open.)
-            </Typography>
-            <Typography>
-              Set aside off of the heat to let rest for 10 minutes, and then
-              serve.
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="div"
+              className="car-details"
+            >
+              <b>Vehicle Build </b>
+              <div>
+                <b>Year: </b>
+                {`${build.year ? build.year : "-"}`}
+              </div>
+              <div>
+                <b>Body Type: </b>
+                {`${build.body_type ? build.body_type : "-"}`}
+              </div>
+              <div>
+                <b>Transmission: </b>
+                {`${build.transmission ? build.transmission : "-"}`}
+              </div>
+              <div>
+                <b>Fuel type: </b>
+                {`${build.fuel_type ? build.fuel_type : "-"}`}
+              </div>
+              <div>
+                <b>Doors: </b>
+                {`${build.doors ? build.doors : "-"}`}
+              </div>
+              <div>
+                <b>Cylinders: </b>
+                {`${build.cylinders ? build.cylinders : "-"}`}
+              </div>
+              <div>
+                <b>Vin Number: </b>
+                {`${vin ? vin : "-"}`}
+              </div>
+              <div>
+                <b>Miles: </b>
+                {`${miles ? miles : "-"}`}
+              </div>
+              <div>
+                <b>Exterior Color: </b>
+                {`${exteriorColor ? exteriorColor : "-"}`}
+              </div>
+              <div>
+                <b>Interior Color: </b>
+                {`${interiorColor ? interiorColor : "-"}`}
+              </div>
             </Typography>
           </CardContent>
-        </Collapse> */}
+        )}
       </Card>
     </div>
   );
