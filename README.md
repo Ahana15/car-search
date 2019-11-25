@@ -24,13 +24,6 @@ These can be obtained here (follow the instructions on the website links):
 1. Add a `.env` file under `client/` with a key-value pair of `REACT_APP_MAP_API_KEY={{INSERT GOOGLE MAPS API KEY HERE}}`
 2. Add a `.env` file under `server/` with a key-value pair of `MARKETCHECK_API_KEY={{INSERT MARKETCHECK API KEY HERE}}`
 
-# Contributors
-
-[Ahana Ghosh](https://github.com/ahana15)
-
-# Date
-
-November 23rd, 2019
 
 # Application in Action
 
@@ -39,7 +32,7 @@ November 23rd, 2019
 # Assumptions and Issues
 
 1. The **average price** represents the average prices of the total cars for a selected make, model, year and **does not include** similar vehicles. If there is no price listed for any of the car listings then an average price will not be displayed. I have chosen not to display the price as it may give a skewed representation of the data since it would be not a true average.
-2. The radius provided to the Marketcheck API is accepting an integer (in miles). The tech challenge said to use a 10km radius, which is approximately 6.21371 miles. I rounded up to 7 miles in my queries.
+2. The radius provided to the Marketcheck API is accepting an integer (in miles). The search radius is 7 miles in my queries.
 3. The **dist** key provided by a response from the Marketcheck API is assumed to be a **straight line distance** between the dealership and the user's selected location in miles.
 4. When populating the **Make** textfield with autocomplete options, the Marketcheck API gives only the first 50 results (limitation of search auto-complete) in alphabetical order for various makes of a car. This make list ranges from "AM General" to "Plymouth".
 5. The **Model** autocomplete options is populated based on the selected make of the car. However, the Marketcheck API gives only the first 50 results as well.
